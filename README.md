@@ -1,6 +1,6 @@
-# Tic Tac Toe
+# Tic-Tac-Toe
 
-This is a simple Tic Tac Toe game
+This is a simple Tic-Tac-Toe game
 
 ## Built With
 
@@ -12,6 +12,10 @@ This is a simple Tic Tac Toe game
 ## Live Demo
 
  Feature Coming
+
+## Prerequisities
+
+To get this project up and running locally, you must already have ruby installed on your computer.
 
 ## Getting Started
 
@@ -25,13 +29,21 @@ _git clone <https://github.com/eypsrcnuygr/Tic-Tac-Toe.git>_
 
 **Step 2**: Direct a terminal into the cloned repository directory
 
-\_cd Tic-Tac-Toe
+_cd Tic-Tac-Toe_
 
 **Step 3**: Run the program from command line, open it in irb, or edit it in a text editor
 
-## Prerequisities
+## How to play
 
-To get this project up and running, you must already have ruby installed on your computer.
+**Step 1**: After starting the program you will be prompted to choose either a human opponent or the cpu.
+
+**Step 2**: Once an opponent is chosen, X's will go first (this will be you).
+
+**Step 3**: The board is arranged in a grid from 1-9. The first row is 1-3, the second row is 4-6, and the third row is 7-9. Choose a position accordingly. After which, your opponent will do the same.
+
+**Step 4**: Continue this process until either one player has 3 in a row or there are no squares left.
+
+**Step 5**: The game will either declare a winner or end in a Cat's Game.
 
 ## Authors
 
