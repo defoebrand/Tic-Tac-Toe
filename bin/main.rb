@@ -68,31 +68,23 @@ class WinningCondition
   end
 
   def outside_horizontal(board)
-    if board[0] == board[1] && board[0] == board[2] && board[0] != '_' ||
-       board[6] == board[7] && board[6] == board[8] && board[7] != '_'
-      true
-    end
+    board[0] == board[1] && board[0] == board[2] && board[0] != '_' ||
+      board[6] == board[7] && board[6] == board[8] && board[7] != '_'
   end
 
   def outside_vertical(board)
-    if board[0] == board[3] && board[0] == board[6] && board[0] != '_' ||
-       board[2] == board[5] && board[2] == board[8] && board[2] != '_'
-      true
-    end
+    board[0] == board[3] && board[0] == board[6] && board[0] != '_' ||
+      board[2] == board[5] && board[2] == board[8] && board[2] != '_'
   end
 
   def inside(board)
-    if board[1] == board[4] && board[1] == board[7] && board[1] != '_' ||
-       board[3] == board[4] && board[3] == board[5] && board[3] != '_'
-      true
-    end
+    board[1] == board[4] && board[1] == board[7] && board[1] != '_' ||
+      board[3] == board[4] && board[3] == board[5] && board[3] != '_'
   end
 
   def diagonal(board)
-    if board[2] == board[4] && board[2] == board[6] && board[2] != '_' ||
-       board[0] == board[4] && board[0] == board[8] && board[0] != '_'
-      true
-    end
+    board[2] == board[4] && board[2] == board[6] && board[2] != '_' ||
+      board[0] == board[4] && board[0] == board[8] && board[0] != '_'
   end
 
   def exitter(symbol)
