@@ -26,7 +26,7 @@ class Game
       puts 'Incorrect input'
       player1
     end
-    # p @@array
+    p @@array
   end
 
   def player2
@@ -47,7 +47,7 @@ class Game
       puts 'Incorrect input'
       player2
     end
-    # p @@array
+    p @@array
   end
 end
 
