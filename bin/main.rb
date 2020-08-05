@@ -2,11 +2,8 @@
 
 class Game
   attr_reader :array
-
-  @@array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-  def array
-    @@array
+  def initialize
+    @array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
   def player1
@@ -15,8 +12,8 @@ class Game
     if x_input.match?(/\b[1-9]\b/)
       puts "Your input was #{x_input}"
 
-      if @@array.include?(x_input.to_i)
-        @@array.delete(x_input.to_i)
+      if @array.include?(x_input.to_i)
+        @array.delete(x_input.to_i)
       else
 
         puts 'Incorrect input'
@@ -26,7 +23,7 @@ class Game
       puts 'Incorrect input'
       player1
     end
-    p @@array
+    p @array
   end
 
   def player2
@@ -36,8 +33,8 @@ class Game
 
       puts "Your input was #{o_input}"
 
-      if @@array.include?(o_input.to_i)
-        @@array.delete(o_input.to_i)
+      if @array.include?(o_input.to_i)
+        @array.delete(o_input.to_i)
       else
 
         puts 'Incorrect input'
@@ -47,7 +44,7 @@ class Game
       puts 'Incorrect input'
       player2
     end
-    p @@array
+    p @array
   end
 end
 
@@ -55,7 +52,7 @@ new_game = Game.new
 
 0.upto(new_game.array.length / 2) do
   new_game.player1
-  if new_game.array.length == 0
+  if new_game.array.length.zero?
     puts 'Game Over!'
   else
     new_game.player2
