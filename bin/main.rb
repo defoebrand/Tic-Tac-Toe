@@ -2,45 +2,22 @@
 
 require_relative '../lib/game'
 require_relative '../lib/winning_condition'
-require_relative '../lib/player_x'
-require_relative '../lib/player_o'
+require_relative '../lib/player'
 
-def player1(choices, board)
-  puts 'Player X - choose square 1-9'
-  x_input = gets.chomp
-  if x_input.match?(/\b[1-9]\b/)
-    if choices.include?(x_input.to_i)
-      choices.delete(x_input.to_i)
-      board[x_input.to_i - 1] = 'x'
-    else
-      puts 'Incorrect input'
-      player1(choices, board)
-    end
-  else
-    puts 'Incorrect input'
-    player1(choices, board)
-  end
+def incorrect_input(symbol, choices, opponent)
+  puts 'Incorrect input'
+  input(symbol, choices, opponent)
 end
 
-def player2(choices, board, opponent)
-  puts 'Player O - choose square 1-9'
-  o_input = if opponent == 'cpu'
-              ((rand * 10) - 1).to_i.to_s
-            else
-              gets.chomp
-            end
-  if o_input.match?(/\b[1-9]\b/)
-    if choices.include?(o_input.to_i)
-      choices.delete(o_input.to_i)
-      board[o_input.to_i - 1] = 'o'
-    else
-      puts 'Incorrect input'
-      player2(choices, board, opponent)
-    end
-  else
-    puts 'Incorrect input'
-    player2(choices, board, opponent)
-  end
+def input(symbol, choices, opponent)
+  p opponent
+  puts "Player #{symbol} - choose square 1-9"
+  input = if opponent == 'cpu' && symbol == 'o'
+            choices.sample.to_s
+          else
+            gets.chomp
+          end
+  input
 end
 
 def exitter(symbol)
@@ -48,38 +25,17 @@ def exitter(symbol)
   replay
 end
 
-def replay
-  p 'Would you like to play again? Y/N'
-  response = gets.chomp
-  if response.downcase == 'y'
-    @opponent_choice = nil
-    choose_opponent(@opponent_choice)
-    player1 = PlayerX.new
-    player2 = PlayerO.new
-    game = Game.new
-    game_checker = WinningCondition.new
-    run_game(player1, player2, game, game_checker)
-  else
-    p 'Goodbye!'
-    exit
-  end
+def opponent_dialogue
+  p 'Who would you like your opponent to be? Human or CPU?'
+  answer = gets.chomp.downcase
+  answer
 end
 
-def choose_opponent(opponent)
-  if opponent.nil?
-    p 'Who would you like your opponent to be? Human or CPU?'
-    answer = gets.chomp.downcase
-    if answer == 'cpu'
-      @opponent_choice = 'cpu'
-    elsif answer == 'human'
-      @opponent_choice = 'human'
-    else
-      p 'Try Again'
-      choose_opponent(opponent)
-    end
-  end
-  @opponent_choice
+def try_again
+  p 'Try Again'
 end
+
+
 
 def game_start_board_display
   puts "
@@ -97,23 +53,41 @@ def game_play_board_display(board)
   "
 end
 
-player1 = PlayerX.new
-player2 = PlayerO.new
+player1 = Player.new('x')
+player2 = Player.new('o')
 game = Game.new
 game_checker = WinningCondition.new
 
+def replay
+  p 'Would you like to play again? Y/N'
+  response = gets.chomp
+  if response.downcase == 'y'
+    @opponent_choice = nil
+    player1 = Player.new('x')
+    player2 = Player.new('o')
+    game = Game.new
+    game_checker = WinningCondition.new
+    run_game(player1, player2, game, game_checker)
+  else
+    p 'Goodbye!'
+    exit
+  end
+end
+
 def run_game(player1, player2, game, game_checker)
   game_start_board_display
+  player1.choose_opponent
   0.upto(game.choices.length / 2) do
-    choose_opponent(@opponent_choice)
-    player1(game.choices, game.board)
+    input = input(player1.symbol, game.choices, @opponent_choice)
+    player1.move(game.choices, game.board, input, @opponent_choice)
     game_play_board_display(game.board)
     game_checker.condition_checker(game.board, player1.symbol)
     if game.choices.length.zero?
       puts "Cat's Game"
       replay
     else
-      player2(game.choices, game.board, @opponent_choice)
+      input = input(player2.symbol, game.choices, @opponent_choice)
+      player2.move(game.choices, game.board, input, @opponent_choice)
       game_play_board_display(game.board)
       game_checker.condition_checker(game.board, player2.symbol)
     end
