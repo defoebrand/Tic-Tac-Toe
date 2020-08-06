@@ -2,25 +2,24 @@
 
 require_relative '../lib/game_logic'
 
-def player1(array, board)
+def player1(choices, board)
   puts 'Player X - choose square 1-9'
   x_input = gets.chomp
   if x_input.match?(/\b[1-9]\b/)
-    puts "Your input was #{x_input}"
-    if array.include?(x_input.to_i)
-      array.delete(x_input.to_i)
+    if choices.include?(x_input.to_i)
+      choices.delete(x_input.to_i)
       board[x_input.to_i - 1] = 'x'
     else
       puts 'Incorrect input'
-      player1(array, board)
+      player1(choices, board)
     end
   else
     puts 'Incorrect input'
-    player1(array, board)
+    player1(choices, board)
   end
 end
 
-def player2(array, board, opponent)
+def player2(choices, board, opponent)
   puts 'Player O - choose square 1-9'
   o_input = if opponent == 'cpu'
               ((rand * 10) - 1).to_i.to_s
@@ -28,17 +27,16 @@ def player2(array, board, opponent)
               gets.chomp
             end
   if o_input.match?(/\b[1-9]\b/)
-    puts "Your input was #{o_input}"
-    if array.include?(o_input.to_i)
-      array.delete(o_input.to_i)
+    if choices.include?(o_input.to_i)
+      choices.delete(o_input.to_i)
       board[o_input.to_i - 1] = 'o'
     else
       puts 'Incorrect input'
-      player2(array, board, opponent)
+      player2(choices, board, opponent)
     end
   else
     puts 'Incorrect input'
-    player2(array, board, opponent)
+    player2(choices, board, opponent)
   end
 end
 
@@ -90,9 +88,10 @@ end
 
 def game_play_board_display(board)
   puts "
-#{board[0]} #{board[1]} #{board[2]}
-#{board[3]} #{board[4]} #{board[5]}
-#{board[6]} #{board[7]} #{board[8]}"
+  #{board[0]} #{board[1]} #{board[2]}
+  #{board[3]} #{board[4]} #{board[5]}
+  #{board[6]} #{board[7]} #{board[8]}
+  "
 end
 
 player1 = PlayerX.new
@@ -102,16 +101,16 @@ game_checker = WinningCondition.new
 
 def run_game(player1, player2, game, game_checker)
   game_start_board_display
-  0.upto(game.array.length / 2) do
+  0.upto(game.choices.length / 2) do
     choose_opponent(@opponent_choice)
-    player1(game.array, game.board)
+    player1(game.choices, game.board)
     game_play_board_display(game.board)
     game_checker.condition_checker(game.board, player1.symbol)
-    if game.array.length.zero?
+    if game.choices.length.zero?
       puts "Cat's Game"
       replay
     else
-      player2(game.array, game.board, @opponent_choice)
+      player2(game.choices, game.board, @opponent_choice)
       game_play_board_display(game.board)
       game_checker.condition_checker(game.board, player2.symbol)
     end
