@@ -3,7 +3,7 @@
 require_relative '../lib/game'
 require_relative '../lib/winning_condition'
 require_relative '../lib/player_x'
-require_relative '../lib/player_y'
+require_relative '../lib/player_o'
 
 def player1(choices, board)
   puts 'Player X - choose square 1-9'
@@ -55,7 +55,7 @@ def replay
     @opponent_choice = nil
     choose_opponent(@opponent_choice)
     player1 = PlayerX.new
-    player2 = PlayerY.new
+    player2 = PlayerO.new
     game = Game.new
     game_checker = WinningCondition.new
     run_game(player1, player2, game, game_checker)
@@ -98,7 +98,7 @@ def game_play_board_display(board)
 end
 
 player1 = PlayerX.new
-player2 = PlayerY.new
+player2 = PlayerO.new
 game = Game.new
 game_checker = WinningCondition.new
 
