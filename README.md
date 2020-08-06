@@ -31,7 +31,7 @@ _git clone <https://github.com/eypsrcnuygr/Tic-Tac-Toe.git>_
 
 _cd Tic-Tac-Toe_
 
-**Step 3**: Run the program from command line, open it in irb, or edit it in a text editor
+**Step 3**: type `main.rb` into the command line, open it in irb, or edit it in a text editor
 
 ## How to play
 
