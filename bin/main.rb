@@ -25,7 +25,7 @@ end
 def player2(choices, board, opponent)
   puts 'Player O - choose square 1-9'
   o_input = if opponent == 'cpu'
-              ((rand * 10) - 1).to_i.to_s
+              choices.sample.to_s
             else
               gets.chomp
             end
