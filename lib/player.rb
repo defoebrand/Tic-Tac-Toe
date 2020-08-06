@@ -1,7 +1,8 @@
 class Player
   attr_reader :symbol, :opponent_choice
-  def initialize(symbol)
+  def initialize(symbol, opponent = nil)
     @symbol = symbol
+    @opponent_choice = opponent
   end
 
   def move(choices, board, input, opponent)
@@ -19,18 +20,18 @@ class Player
     end
   end
 
-  def choose_opponent(opponent = nil)
+  def choose_opponent(opponent)
     if opponent.nil?
       answer = opponent_dialogue
       if answer == 'cpu'
-        opponent = 'cpu'
+        @opponent_choice = 'cpu'
       elsif answer == 'human'
-        opponent = 'human'
+        @opponent_choice = 'human'
       else
         try_again
-        choose_opponent(opponent)
+        choose_opponent(@opponent_choice)
       end
     end
-    opponent
+    @opponent_choice
   end
 end

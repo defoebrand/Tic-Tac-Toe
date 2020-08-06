@@ -74,18 +74,18 @@ end
 
 def run_game(player1, player2, game, game_checker)
   game_start_board_display
-  player1.choose_opponent
+  player1.choose_opponent(player1.opponent_choice)
   0.upto(game.choices.length / 2) do
-    input = input(player1.symbol, game.choices, @opponent_choice)
-    player1.move(game.choices, game.board, input, @opponent_choice)
+    input = input(player1.symbol, game.choices, player1.opponent_choice)
+    player1.move(game.choices, game.board, input, player1.opponent_choice)
     game_play_board_display(game.board)
     game_checker.condition_checker(game.board, player1.symbol)
     if game.choices.length.zero?
       puts "Cat's Game"
       replay
     else
-      input = input(player2.symbol, game.choices, @opponent_choice)
-      player2.move(game.choices, game.board, input, @opponent_choice)
+      input = input(player2.symbol, game.choices, player1.opponent_choice)
+      player2.move(game.choices, game.board, input, player1.opponent_choice)
       game_play_board_display(game.board)
       game_checker.condition_checker(game.board, player2.symbol)
     end
