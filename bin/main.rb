@@ -10,7 +10,6 @@ def incorrect_input(symbol, choices, opponent)
 end
 
 def input(symbol, choices, opponent)
-  p opponent
   puts "Player #{symbol} - choose square 1-9"
   input = if opponent == 'cpu' && symbol == 'o'
             choices.sample.to_s
@@ -60,7 +59,6 @@ def replay
   p 'Would you like to play again? Y/N'
   response = gets.chomp
   if response.downcase == 'y'
-    @opponent_choice = nil
     player1 = Player.new('x')
     player2 = Player.new('o')
     game = Game.new
