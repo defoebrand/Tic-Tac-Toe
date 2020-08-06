@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/game_logic'
+require_relative '../lib/game'
+require_relative '../lib/winning_condition'
+require_relative '../lib/player_x'
+require_relative '../lib/player_y'
 
 def player1(choices, board)
   puts 'Player X - choose square 1-9'
