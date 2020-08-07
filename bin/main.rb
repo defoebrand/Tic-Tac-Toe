@@ -41,18 +41,6 @@ Tic-Tac-Toe Game Board
 7 8 9"
 end
 
-def game_play_board_display(board)
-  puts "
-  #{board[0]} #{board[1]} #{board[2]}
-  #{board[3]} #{board[4]} #{board[5]}
-  #{board[6]} #{board[7]} #{board[8]}
-  "
-end
-
-player1 = Player.new('x')
-player2 = Player.new('o')
-game = Game.new
-
 def replay
   p 'Would you like to play again? Y/N'
   response = gets.chomp
@@ -66,6 +54,18 @@ def replay
     exit
   end
 end
+
+def game_play_board_display(board)
+  puts "
+  #{board[0]} #{board[1]} #{board[2]}
+  #{board[3]} #{board[4]} #{board[5]}
+  #{board[6]} #{board[7]} #{board[8]}
+  "
+end
+
+player1 = Player.new('x')
+player2 = Player.new('o')
+game = Game.new
 
 def run_game(player1, player2, game)
   game_start_board_display
