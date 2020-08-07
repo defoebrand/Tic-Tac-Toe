@@ -25,9 +25,11 @@ _git clone <https://github.com/eypsrcnuygr/Tic-Tac-Toe.git>_
 
 **Step 2**: Direct a terminal into the cloned repository directory
 
-\_cd Tic-Tac-Toe
+_cd Tic-Tac-Toe_
 
-**Step 3**: Run the program from command line, open it in irb, or edit it in a text editor
+**Step 3**: create an executable file by following the steps as outlined [here](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/)
+
+**Step 4**: type `main.rb` into the command line, open it in irb, or edit it in a text editor. If you chose to ignore step 3, type `ruby bin/main.rb`
 
 ## Prerequisities
 
