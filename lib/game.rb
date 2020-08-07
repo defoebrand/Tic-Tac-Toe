@@ -20,7 +20,9 @@ class Game
   end
 
   def diagonal(board, symbol)
-    exitter(symbol) if board[2] == symbol && board[4] == symbol && board[6] == symbol
-    exitter(symbol) if board[0] == symbol && board[4] == symbol && board[8] == symbol
+    if board[2] == symbol && board[4] == symbol && board[6] == symbol ||
+       board[0] == symbol && board[4] == symbol && board[8] == symbol
+      exitter(symbol)
+    end
   end
 end
