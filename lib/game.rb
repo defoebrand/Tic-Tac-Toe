@@ -7,7 +7,7 @@ class Game
 
   def condition_checker(board, symbol)
     linear(board, symbol)
-    diagonal(board, symbol)
+    exitter(symbol) if diagonal(board, symbol)
   end
 
   def linear(board, symbol)
@@ -20,9 +20,7 @@ class Game
   end
 
   def diagonal(board, symbol)
-    if board[2] == symbol && board[4] == symbol && board[6] == symbol ||
-       board[0] == symbol && board[4] == symbol && board[8] == symbol
-      exitter(symbol)
-    end
+    board[2] == symbol && board[4] == symbol && board[6] == symbol ||
+      board[0] == symbol && board[4] == symbol && board[8] == symbol
   end
 end
