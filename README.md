@@ -33,7 +33,7 @@ _cd Tic-Tac-Toe_
 
 **Step 3**: create an executable file by following the steps as outlined [here](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/)
 
-**Step 4**: type `main.rb` into the command line, open it in irb, or edit it in a text editor. If you chose to ignore step 3, type `ruby bin/main.rb`
+**Step 4**: type `main.rb` into the command line, open it in irb, or edit it in a text editor. If you chose to ignore step 3, type `ruby bin/main.rb`. Alternatively if you would like to skip all of these steps, just click the live demo above.
 
 ## How to play
 
