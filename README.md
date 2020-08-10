@@ -35,13 +35,21 @@ _cd Tic-Tac-Toe_
 
 **Step 4**: type `main.rb` into the command line, open it in irb, or edit it in a text editor. If you chose to ignore step 3, type `ruby bin/main.rb`. Alternatively if you would like to skip all of these steps, just click the live demo above.
 
+## Rules of the game
+
+**Rule 1**:  The board is arranged in a grid from 1-9. The first row is 1-3, the second row is 4-6, and the third row is 7-9.
+
+**Rule 2**:  Players take turns selecting empty tiles.
+
+**Rule 3**:  The first player to fill 3 tiles in a row wins the game.
+
 ## How to play
 
 **Step 1**: After starting the program you will be prompted to choose either a human opponent or the cpu.
 
 **Step 2**: Once an opponent is chosen, X's will go first (this will be you).
 
-**Step 3**: The board is arranged in a grid from 1-9. The first row is 1-3, the second row is 4-6, and the third row is 7-9. Choose a position accordingly. After which, your opponent will do the same.
+**Step 3**: Choose a position accordingly. After which, your opponent will do the same.
 
 **Step 4**: Continue this process until either one player has 3 in a row or there are no squares left.
 
@@ -56,11 +64,17 @@ _cd Tic-Tac-Toe_
 -   LinkedIn: [eypsrcnuygr](https://www.linkedin.com/in/eypsrcnuygr/)
 -   Gmail: <mailto:sercanuygur@gmail.com>
 
-    **Defoe Brandon**
+👤 **Defoe Brandon**
 
 -   Github: [@defoebrand](https://github.com/defoebrand)
 -   LinkedIn: [Defoe Brandon](https://www.linkedin.com/in/defoebrand/)
 -   Gmail: <mailto:defoe.brand@gmail.com>
+
+## Repository Contents
+
+**bin folder**: User interface instructions are contained in the main.rb file found in this folder. All user inputs and game outputs will be shown here.
+
+**lib folder**: All game logic instructions are found between the game.rb file and player.rb files found in this folder. The game.rb file contains the board and instructions on how the program should declare a winner. The player.rb file creates the two players and instructs the program on how to handle each player's move.
 
 ## 🤝 Contributing
 
